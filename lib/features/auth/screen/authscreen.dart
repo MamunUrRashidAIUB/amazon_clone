@@ -1,3 +1,4 @@
+import "package:amazon_clone/common/widget/custom_button.dart";
 import "package:amazon_clone/common/widget/customtextfield.dart";
 import "package:amazon_clone/constants/globalvariables.dart";
 import "package:flutter/material.dart";
@@ -39,6 +40,7 @@ class _AuthscreenState extends State<Authscreen> {
           child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               "welcome",
@@ -61,15 +63,36 @@ class _AuthscreenState extends State<Authscreen> {
               ),
             ),
             if (_auth == auth.signup)
-              Form(
-                key: _signinformkey,
-                child: Column(
-                  children: [
-                    CustomTextfield(
-                      controller: _emailcontroller,
-                      hintText: "Email",
-                    )
-                  ],
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Form(
+                  key: _signinformkey,
+                  child: Column(
+                    children: [
+                      CustomTextfield(
+                        controller: _namecontroller,
+                        hintText: "Name",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      CustomTextfield(
+                        controller: _emailcontroller,
+                        hintText: "Email",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      CustomTextfield(
+                        controller: _passwordcontroller,
+                        hintText: "Password",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Custombutton(text: "Sign-up", ontap: () {})
+                    ],
+                  ),
                 ),
               ),
             ListTile(
@@ -87,7 +110,36 @@ class _AuthscreenState extends State<Authscreen> {
                   });
                 },
               ),
-            )
+            ),
+            if (_auth == auth.singin)
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Form(
+                  key: _signinformkey,
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      CustomTextfield(
+                        controller: _emailcontroller,
+                        hintText: "Email",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      CustomTextfield(
+                        controller: _passwordcontroller,
+                        hintText: "Password",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Custombutton(text: "Sign-in", ontap: () {})
+                    ],
+                  ),
+                ),
+              ),
           ],
         ),
       )),
