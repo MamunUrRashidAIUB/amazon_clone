@@ -64,7 +64,12 @@ class _AuthscreenState extends State<Authscreen> {
               Form(
                 key: _signinformkey,
                 child: Column(
-                  children: [CustomTextfield(controller: controller)],
+                  children: [
+                    CustomTextfield(
+                      controller: _emailcontroller,
+                      hintText: "Email",
+                    )
+                  ],
                 ),
               ),
             ListTile(
